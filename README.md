@@ -72,9 +72,21 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 ![Login](images/Landing.PNG)
 
-- AI Assistant Chat
+- AI Assistant Chat - Patiend ID Input
 
-![Login](images/Chat.PNG)
+![Login](images/Chat1.PNG)
+
+- AI Assistant Chat - Patiend ID Response
+
+![Login](images/Chat2.PNG)
+
+- AI Assistant Chat - Specific Questions based on Patient ID
+
+![Login](images/Chat3.PNG)
+
+- AI Assistant Chat - Response from Specific Question
+
+![Login](images/Chat4.PNG)
 
 ---
 
