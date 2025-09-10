@@ -6,6 +6,8 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)  
 ![Status](https://img.shields.io/badge/Status-Prototype-orange.svg)  
 
+![Logo](logo.png)
+
 **BumpCare AI** is an **AI-powered pregnancy care assistant** built for **doctors and nurses**.  
 It provides instant trimester summaries, risk identification, medication class suggestions, and evidence-based recommendations by leveraging **gpt-oss-20b**.  
 
