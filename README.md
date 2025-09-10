@@ -99,7 +99,7 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 ## 🖥️ Mockup UI Screens
 
-- Login Page
+- Login Page  
 - Doctor Portal  
 - AI Assistant Chat  
 
@@ -197,24 +197,24 @@ Test with sample patient IDs from `/sample_data/patients.json`
 
 ## 🛠️ Future Roadmap
 
-- **Integration with multiple hospitals** → Networked deployment.  
-- **EHR/EMR Sync** → Automatic bidirectional updates.  
-- **Interoperability Standards** → HL7 FHIR / SNOMED CT compliance.  
-- **Postpartum Care** → Extend care to postnatal mother and infant health.  
-- **Wearable Integration** → Real-time vitals from BP cuffs, glucose monitors, smartwatches.  
-- **Multilingual Support** → Local language support for rural regions.  
-- **Mobile Companion App** → Lightweight tool for nurses and field healthcare workers.  
+- **Integration with multiple hospitals** → Expand deployment to connect with a network of hospitals.  
+- **EHR/EMR Sync** → Support bidirectional sync with hospital EHR/EMR systems so patient summaries, risks, and AI suggestions are automatically stored in official records.  
+- **Interoperability Standards** → Adopt HL7 FHIR / SNOMED CT to ensure data portability across healthcare systems.  
+- **Postpartum Care** → Extend BumpCare beyond pregnancy into postpartum mother and infant health.  
+- **Wearable Integration** → Ingest real-time vitals (BP cuffs, glucose monitors, smartwatches) for continuous risk monitoring.  
+- **Multilingual Support** → Enable region-specific languages to support rural doctors and patients.  
+- **Mobile Companion App** → Lightweight mobile tool for nurses and field healthcare workers.  
 
 ---
 
 ## ⚠️ Known Limitations
 
-- **Doctor-in-the-loop required** → AI is decision-support only.  
-- **Research freshness** → Depends on update frequency of guidelines/papers.  
-- **Data dependency** → Accuracy relies on completeness of patient records.  
-- **EHR/EMR integration scope** → Hospital-specific for now.  
-- **Language limitations** → English only (multilingual planned).  
-- **Edge cases** → Rare complications may not be fully supported.  
+- **Doctor-in-the-loop required** → BumpCare AI is a decision-support tool, not a replacement for clinical judgment. All outputs must be validated by a healthcare professional.  
+- **Research freshness** → Recommendations depend on how frequently medical guidelines and research papers are ingested into the vector store. Delays may reduce evidence currency.  
+- **Data dependency** → The system’s accuracy relies on completeness and quality of patient records (labs, scans, vitals). Missing data may affect risk assessment.  
+- **EHR/EMR integration scope** → Current implementation is hospital-specific. Cross-hospital interoperability (FHIR/HL7) is part of the future roadmap, not fully implemented yet.  
+- **Language limitations** → Presently supports English only; multilingual expansion is planned.  
+- **Edge cases in pregnancy** → Rare complications (e.g., multiple gestation anomalies, rare genetic syndromes) may not be covered fully by the AI assistant.  
 
 ---
 
