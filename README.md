@@ -52,8 +52,6 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 ## ✨ Key Aspects of the Solution
 
-## ✨ Key Aspects of the Solution
-
 - **Automated Patient Summaries**  
   Provides trimester status, vitals, lab test interpretations, and fetal growth details. Consolidates fragmented records into a single, structured view.  
 
