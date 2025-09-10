@@ -1,11 +1,17 @@
 # 🤰 BumpCare AI – Smart Care, Smart Pregnancy
 
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)  
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green.svg)  
+![SQL](https://img.shields.io/badge/Database-SQL-lightgrey.svg)  
+![License](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)  
+![Status](https://img.shields.io/badge/Status-Prototype-orange.svg)  
+
 ![Logo](Logo.png)
 
 **BumpCare AI** is an **AI-powered pregnancy care assistant** built for **doctors and nurses**.  
 It provides instant trimester summaries, risk identification, medication class suggestions, and evidence-based recommendations by leveraging **gpt-oss-20b**.  
 
-Developed by **United Techno**.  
+Developed by **[United Techno](https://www.unitedtechno.com/)**.  
 
 ---
 
@@ -165,7 +171,7 @@ python app.py
 ```
 
 Access at: [http://127.0.0.1:5000/chat](http://127.0.0.1:5000/chat)  
-Test with sample patient IDs from `/sample_data/patients.json`  
+Test with sample patient IDs from [`/Sample_Data.json`](./Sample_Data.json)  
 
 ---
 
