@@ -1,11 +1,5 @@
 # 🤰 BumpCare AI – Smart Care, Smart Pregnancy
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)  
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green.svg)  
-![SQL](https://img.shields.io/badge/Database-SQL-lightgrey.svg)  
-![License](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)  
-![Status](https://img.shields.io/badge/Status-Prototype-orange.svg)  
-
 ![Logo](Logo.png)
 
 **BumpCare AI** is an **AI-powered pregnancy care assistant** built for **doctors and nurses**.  
