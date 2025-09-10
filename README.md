@@ -107,8 +107,8 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 ## 🏗️ System Architecture
 
-1. **High-Level Overview**  
-
+1. **High-Level Overview** 
+![Architecture](Architecture.png)
 2. **Components**  
 
 | Component   | Tech         | Responsibilities |
