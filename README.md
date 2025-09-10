@@ -1,11 +1,5 @@
 # 🤰 BumpCare AI – Smart Care, Smart Pregnancy
 
-![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)  
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green.svg)  
-![SQL](https://img.shields.io/badge/Database-SQL-lightgrey.svg)  
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)  
-![Status](https://img.shields.io/badge/Status-Prototype-orange.svg)  
-
 ![Logo](Logo.png)
 
 **BumpCare AI** is an **AI-powered pregnancy care assistant** built for **doctors and nurses**.  
@@ -41,19 +35,10 @@ Developed by **United Techno**.
 Pregnancy care is one of the **most critical and high-risk** areas in healthcare. Doctors and nurses face daily challenges during outpatient consultations:
 
 - **High Patient Volume & Time Pressure**  
-  Doctors see dozens of pregnant patients every day, each with complex medical histories, lab reports, and scan results. Reviewing everything manually in limited consultation time increases the risk of oversight.  
-
 - **Fragmented Data Across Reports**  
-  Patient information is spread across lab sheets, ultrasound reports, blood pressure logs, and medical records. Consolidating this manually is inefficient and error-prone.  
-
 - **Missed Risk Detection**  
-  Conditions such as pre-eclampsia, gestational diabetes, fetal growth restriction, thyroid imbalance, and anemia require early detection. Failure to identify these risks on time may lead to severe complications for mother and baby.  
-
 - **Cognitive Overload for Doctors**  
-  Doctors must interpret multiple results while making clinical judgments quickly. Nurses assisting in assessments may lack the time or expertise to interpret results fully.  
-
 - **Lack of Real-time Evidence Support**  
-  Doctors often cannot access the latest research papers or clinical guidelines during consultations, making it harder to provide evidence-backed care consistently.  
 
 ➡️ These gaps directly affect **maternal safety, fetal development, and quality of care**.  
 
@@ -61,41 +46,19 @@ Pregnancy care is one of the **most critical and high-risk** areas in healthcare
 
 ## 💡 Solution – BumpCare AI
 
-BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily AI assistant**. Using patient IDs linked to hospital records, the system automatically generates textual trimester summaries, risk predictions, and safe recommendations.  
+BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily AI assistant**. Using patient IDs linked to hospital records, the system automatically generates trimester summaries, risk predictions, and safe recommendations.  
 
 ---
 
 ## ✨ Key Aspects of the Solution
 
-- **Automated Patient Summaries**  
-  - Provides trimester status, vitals, lab test interpretations, and fetal growth details.  
-  - Consolidates fragmented records into a single, structured view.  
-
-- **Risk Detection & Alerts**  
-  - AI flags early signs of pre-eclampsia, gestational diabetes, fetal growth restriction, thyroid disorders, and anemia.  
-  - Trend-based alerts highlight worsening conditions (e.g., rising BP, falling Hb).  
-
-- **AI-Generated Recommendations**  
-  - Suggests generic medication classes (iron, folic acid, calcium, omega-3, levothyroxine).  
-  - Provides food & nutrition guidance, safe trimester exercises, and lifestyle precautions.  
-  - Outputs are textual, clear, and doctor-friendly.  
-
-- **Case Similarity Analysis**  
-  - Compares current patients with past cases stored in the database.  
-  - Offers insights on how similar cases were monitored and managed.  
-
-- **Evidence-Based Medicine**  
-  - Retrieves and links to research papers and medical ontology.  
-  - Ensures all AI suggestions are backed by trusted medical sources.  
-
-- **Doctor Workflow Support**  
-  - Doctors save time by reviewing AI summaries instead of raw reports.  
-  - Nurses receive guidance on nutrition, exercise, and lifestyle recommendations.  
-
-- **Nutrition & Exercise Guidance**  
-  - Trimester-specific recommendations: iron-rich foods, calcium and folate support.  
-  - Safe physical activities such as light yoga, walking, and stretching.  
-  - Advice on hydration, sleep hygiene, and avoiding restricted foods/activities.  
+- Automated patient summaries  
+- Risk detection & alerts  
+- AI-generated recommendations  
+- Case similarity analysis  
+- Evidence-based medicine  
+- Doctor workflow support  
+- Nutrition & exercise guidance  
 
 ---
 
@@ -118,7 +81,7 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 | Component   | Tech         | Responsibilities |
 |-------------|-------------|------------------|
 | Frontend    | HTML/CSS/JS | Login, Patient ID input, textual AI outputs |
-| Backend     | FastAPI/Flask | Auth, patient record aggregation, orchestrates AI |
+| Backend     | Flask       | DBAuth, patient record aggregation, orchestrates AI |
 | AI Models   | gpt-oss-20b | Summaries, risk reasoning, safe recs, citations |
 | Patient DB  | SQL         | Stores patient visits, labs, history |
 | Vector Store| FAISS       | Research, ontology, similar cases |
@@ -142,22 +105,31 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 ## 📊 RAG & Model Details
 
 - **Embeddings**: `all-MiniLM-L6-v2`  
-- **Precomputed embeddings** stored in `index.pkl` for efficient similarity search.  
+- **Precomputed embeddings** stored in FAISS for efficient similarity search.  
 - **Models**: `gpt-oss-20b` for fast responses.  
 - **Safety Guards**: no branded drugs, value-range validation, unsafe meds filter.  
+- **RAG Data Sources**: Peer-reviewed articles and guidelines including:  
+  - *Maternal Diet and Nutrient Requirements in Pregnancy*  
+  - *Daily Iron and Folic Acid Supplementation in Pregnant Women*  
+  - *Dietary Supplements and Life Stages: Pregnancy*  
+  - *Maternal and Child Nutrition*  
+
+These sources enhance retrieval accuracy, evidence-backed insights, and ensure continuous updates.  
 
 ---
 
 ## 🗄️ Data Model
 
-Minimal schema:  
+Note: Patient data is **synthesized** for privacy.  
+
+Examples:  
 
 ```
-patients(id, name, dob, gravida, history, conditions)
-visits(id, patient_id, gestational_week, trimester, bp_sys, bp_dia, weight)
-labs(id, patient_id, visit_id, test_name, value, unit)
-scans(id, patient_id, visit_id, finding, efw, fetal_hr, placenta_position)
-cases(id, patient_id, phenotype_vector, outcome)
+Patient_data_trimester1 (PatientID, Trimester, Month, Week, Beta_hCG, Hemoglobin, BloodGroup, RhFactor, BloodSugar_Fasting, BloodSugar_PostMeal, OGTT, AFP, Triple_Test, Progesterone, Estriol, Platelet_Count, Abortion_Status, etc.)
+
+Patient_data_trimester2 (PatientID, Age, Region, PastMedicalConditions, Gravida, Para, Abortions, PreviousPregnancyComplications, etc.)
+
+Patient_data_trimester3 (PatientID, Age, Region, PastMedicalConditions, Gravida, Para, Abortions, PreviousPregnancyComplications, etc.)
 ```
 
 ---
@@ -179,8 +151,6 @@ cases(id, patient_id, phenotype_vector, outcome)
 ---
 
 ## ⚙️ Setup Instructions
-
-Run BumpCare AI locally with these steps:
 
 ```bash
 # Clone repo
@@ -252,4 +222,3 @@ Demo video (≤ 3 minutes) showcasing:
 ## 📜 License
 
 This project is licensed under the **Apache License 2.0** – see the [LICENSE](LICENSE) file for details.
-
