@@ -106,7 +106,7 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 |-------------|-------------|------------------|
 | Frontend    | HTML/CSS/JS | Login, Patient ID input, textual AI outputs |
 | Backend     | Flask       | DBAuth, patient record aggregation, orchestrates AI |
-| AI Models   | gpt-oss-20b | Summaries, risk reasoning, safe recs, citations |
+| AI Models   | Ollama gpt-oss-20b | Summaries, risk reasoning, safe recs, citations |
 | Patient DB  | SQL         | Stores patient visits, labs, history |
 | Vector Store| FAISS       | Research, ontology, similar cases |
 | Security    | DB-Based Auth | Role-based access | 
