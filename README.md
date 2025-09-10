@@ -1,164 +1,184 @@
-BumpCare AI – Smart Care, Smart Pregnancy
-BumpCare AI is an AI-powered pregnancy care assistant built for doctors and nurses. It provides instant trimester summaries, risk identification, medication class suggestions, and evidence-based recommendations by leveraging gpt-oss model 20b.
-Developed by United Techno.
-Problem Statement
-Pregnancy care is one of the most critical and high-risk areas in healthcare. Doctors and nurses face daily challenges when dealing with outpatient consultations:
-High Patient Volume & Time Pressure
+# 🤰 BumpCare AI – Smart Care, Smart Pregnancy
 
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)  
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green.svg)  
+![SQL](https://img.shields.io/badge/Database-SQL-lightgrey.svg)  
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)  
+![Status](https://img.shields.io/badge/Status-Prototype-orange.svg)  
 
-Doctors see dozens of pregnant patients every day, each with complex medical histories, lab reports, and scan results.
-Reviewing everything manually in limited consultation time increases the risk of oversight.
+**BumpCare AI** is an **AI-powered pregnancy care assistant** built for **doctors and nurses**.  
+It provides instant trimester summaries, risk identification, medication class suggestions, and evidence-based recommendations by leveraging **gpt-oss-20b**.  
 
+Developed by **United Techno**.  
 
-Fragmented Data Across Reports
+---
 
+## 📚 Table of Contents
+- [Problem Statement](#-problem-statement)
+- [Solution](#-solution--bumpcare-ai)
+- [Key Aspects of the Solution](#-key-aspects-of-the-solution)
+- [Mockup UI Screens](#-mockup-ui-screens)
+- [System Architecture](#-system-architecture)
+- [Data Flow](#-data-flow)
+- [RAG & Model Details](#-rag--model-details)
+- [Data Model](#-data-model)
+- [Security & Compliance](#-security--compliance)
+- [Ethical Considerations](#-ethical-considerations)
+- [Setup Instructions](#-setup-instructions)
+- [Future Roadmap](#-future-roadmap)
+- [Known Limitations](#-known-limitations)
+- [Submission Video](#-submission-video)
+- [Team](#-team)
+- [Tagline](#-tagline)
+- [License](#-license)
 
-Patient information is spread across lab sheets, ultrasound reports, blood pressure logs, and medical records.
-Consolidating this manually is inefficient and error-prone.
+---
 
+## 🚩 Problem Statement
 
-Missed Risk Detection
+Pregnancy care is one of the **most critical and high-risk** areas in healthcare. Doctors and nurses face daily challenges during outpatient consultations:
 
+- **High Patient Volume & Time Pressure**  
+  Doctors see dozens of pregnant patients every day, each with complex medical histories, lab reports, and scan results. Reviewing everything manually in limited consultation time increases the risk of oversight.  
 
-Conditions such as pre-eclampsia, gestational diabetes, fetal growth restriction, thyroid imbalance, and anemia require early detection.
-Failure to identify these risks on time may lead to severe complications for mother and baby.
+- **Fragmented Data Across Reports**  
+  Patient information is spread across lab sheets, ultrasound reports, blood pressure logs, and medical records. Consolidating this manually is inefficient and error-prone.  
 
+- **Missed Risk Detection**  
+  Conditions such as pre-eclampsia, gestational diabetes, fetal growth restriction, thyroid imbalance, and anemia require early detection. Failure to identify these risks on time may lead to severe complications for mother and baby.  
 
-Cognitive Overload for Doctors 
-Doctors must interpret multiple results while making clinical judgments quickly.
-Nurses assisting in assessments may lack the time or expertise to interpret results fully.
+- **Cognitive Overload for Doctors**  
+  Doctors must interpret multiple results while making clinical judgments quickly. Nurses assisting in assessments may lack the time or expertise to interpret results fully.  
 
+- **Lack of Real-time Evidence Support**  
+  Doctors often cannot access the latest research papers or clinical guidelines during consultations, making it harder to provide evidence-backed care consistently.  
 
-Lack of Real-time Evidence Support
+➡️ These gaps directly affect **maternal safety, fetal development, and quality of care**.  
 
+---
 
-Doctors often cannot access the latest research papers or clinical guidelines during consultations.
-This makes it harder to provide evidence-backed care consistently.
+## 💡 Solution – BumpCare AI
 
+BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily AI assistant**. Using patient IDs linked to hospital records, the system automatically generates textual trimester summaries, risk predictions, and safe recommendations.  
 
-These gaps — time pressure, fragmented data, missed risks, cognitive overload, and lack of research integration — directly affect maternal safety, fetal development, and quality of care.
-Solution – BumpCare AI
-BumpCare AI is designed to bridge these gaps by acting as a doctor’s daily AI assistant. Using patient IDs linked to hospital records, the system automatically generates textual trimester summaries, risk predictions, and safe recommendations.
-Key aspects of the solution:
-Automated Patient Summaries
+---
 
+## ✨ Key Aspects of the Solution
 
-Provides trimester status, vitals, lab test interpretations, and fetal growth details.
-Consolidates fragmented records into a single, structured view.
+- **Automated Patient Summaries**  
+  - Provides trimester status, vitals, lab test interpretations, and fetal growth details.  
+  - Consolidates fragmented records into a single, structured view.  
 
+- **Risk Detection & Alerts**  
+  - AI flags early signs of pre-eclampsia, gestational diabetes, fetal growth restriction, thyroid disorders, and anemia.  
+  - Trend-based alerts highlight worsening conditions (e.g., rising BP, falling Hb).  
 
-Risk Detection & Alerts
+- **AI-Generated Recommendations**  
+  - Suggests generic medication classes (iron, folic acid, calcium, omega-3, levothyroxine).  
+  - Provides food & nutrition guidance, safe trimester exercises, and lifestyle precautions.  
+  - Outputs are textual, clear, and doctor-friendly.  
 
+- **Case Similarity Analysis**  
+  - Compares current patients with past cases stored in the database.  
+  - Offers insights on how similar cases were monitored and managed.  
 
-AI flags early signs of pre-eclampsia, gestational diabetes, fetal growth restriction, thyroid disorders, and anemia.
-Trend-based alerts highlight worsening conditions (e.g., rising BP, falling Hb).
+- **Evidence-Based Medicine**  
+  - Retrieves and links to research papers and medical ontology.  
+  - Ensures all AI suggestions are backed by trusted medical sources.  
 
+- **Doctor Workflow Support**  
+  - Doctors save time by reviewing AI summaries instead of raw reports.  
+  - Nurses receive guidance on nutrition, exercise, and lifestyle recommendations.  
 
-AI-Generated Recommendations
+- **Nutrition & Exercise Guidance**  
+  - Trimester-specific recommendations: iron-rich foods, calcium and folate support.  
+  - Safe physical activities such as light yoga, walking, and stretching.  
+  - Advice on hydration, sleep hygiene, and avoiding restricted foods/activities.  
 
+---
 
-Suggests generic medication classes (iron, folic acid, calcium, omega-3, levothyroxine).
-Provides food & nutrition guidance, safe trimester exercises, and lifestyle precautions.
-Outputs are textual, clear, and doctor-friendly.
+## 🖥️ Mockup UI Screens
 
+- Login Page
+- Doctor Portal  
+- AI Assistant Chat  
 
-Case Similarity Analysis
+---
 
+## 🏗️ System Architecture
 
-Compares current patients with past cases stored in the database.
-Offers insights on how similar cases were monitored and managed.
+1. **High-Level Overview**  
 
+2. **Components**  
 
-Evidence-Based Medicine
+| Component   | Tech         | Responsibilities |
+|-------------|-------------|------------------|
+| Frontend    | HTML/CSS/JS | Login, Patient ID input, textual AI outputs |
+| Backend     | FastAPI/Flask | Auth, patient record aggregation, orchestrates AI |
+| AI Models   | gpt-oss-20b | Summaries, risk reasoning, safe recs, citations |
+| Patient DB  | SQL         | Stores patient visits, labs, history |
+| Vector Store| FAISS       | Research, ontology, similar cases |
+| Security    | DB-Based Auth | Role-based access |  
 
+---
 
-Retrieves and links to research papers and medical ontology.
-Ensures all AI suggestions are backed by trusted medical sources.
+## 🔄 Data Flow
 
+**Request → Response lifecycle:**  
 
-Doctor & Nurse Workflow Support
+1. Doctor/Nurse logs in and enters Patient ID.  
+2. Backend authenticates, fetches records from SQL DB, and retrieves embeddings from FAISS.  
+3. AI model generates summaries, risks, and safe recs (with safety guards).  
+4. Backend consolidates and delivers structured summary to the portal.  
 
+📌 Flow: Portal → Backend → Database/Vector Store → AI → Backend → Portal  
 
-Doctors save time by reviewing AI summaries instead of raw reports.
-Nurses can use the tool for pre-consultation assessment, enabling efficient teamwork.
+---
 
+## 📊 RAG & Model Details
 
-This makes pregnancy care safer, faster, and more consistent — while keeping the doctor in control of final decisions.
-Key Features
-Patient Summary: Gestational age, history, trimester data, labs, scans.
-AI Risk Recommendations: Detects maternal & fetal risks early.
-AI Medication Suggestions (Non-Branded): Safe supplement classes only.
-Food & Lifestyle Guidance: Nutrition, trimester-safe exercises, and precautions.
-Case Similarity Insights: Compares with past patients having similar conditions.
-Research Integration: Evidence links from vectorized medical papers & ontology.
-Secure Access: Role-based login for doctors & nurses.
+- **Embeddings**: `all-MiniLM-L6-v2`  
+- **Precomputed embeddings** stored in `index.pkl` for efficient similarity search.  
+- **Models**: `gpt-oss-20b` for fast responses.  
+- **Safety Guards**: no branded drugs, value-range validation, unsafe meds filter.  
 
+---
 
-Mockup UI Screens
-Login Page
-Doctor Portal
-AI Assistant Chat
+## 🗄️ Data Model
 
+Minimal schema:  
 
-
-System Architecture
-1) High-Level Overview
-
-
-
-
-2) Components
-Component
-Tech
-Responsibilities
-Frontend
-HTML/CSS/JS
-Login, Patient ID input, textual AI outputs
-Backend
-FastAPI/Flask
-Auth, patient record aggregation, orchestrates AI
-AI Models
-gpt-oss-20b
-Summaries, risk reasoning, safe recs, citations
-Patient DB
-SQL
-Stores patient visits, labs, history
-Vector Store
-FAISS
-Research, ontology, similar cases
-Security
-DB-Based Auth
-Role-based access 
-
-3) Data Flow (Request → Response)
-
-
-4) RAG & Model Details
-Embeddings: all-MiniLM-L6-v2
-Models:
-gpt-oss-20b → fast responses
-Safety Guards: no branded drugs, value-range validation, unsafe meds filter
-
-
-5) Data Model (Minimal Example)
+```
 patients(id, name, dob, gravida, history, conditions)
 visits(id, patient_id, gestational_week, trimester, bp_sys, bp_dia, weight)
 labs(id, patient_id, visit_id, test_name, value, unit)
 scans(id, patient_id, visit_id, finding, efw, fetal_hr, placenta_position)
 cases(id, patient_id, phenotype_vector, outcome)
-6) Security & Compliance
-Data:DB-Auth (access control)
-Privacy: Prepared Synthesized data for the patients.
+```
 
-Ethical Considerations
-Doctor-in-the-loop: AI supports, doctors decide.
-Non-branded recommendations: Only generic medication classes.
-Transparency: All AI outputs link to evidence/research.
-Privacy: Patient data anonymized and handled securely.
+---
 
+## 🔐 Security & Compliance
 
-Setup Instructions
+- **DB-Auth** for access control.  
+- **Privacy-first**: Synthesized patient data prepared for demos and testing.  
 
+---
+
+## ⚖️ Ethical Considerations
+
+- **Doctor-in-the-loop** → AI supports, doctors decide.  
+- **Non-branded recommendations** → Only generic medication classes.  
+- **Transparency** → All AI outputs link to evidence/research.  
+- **Privacy** → Patient data anonymized and securely handled.  
+
+---
+
+## ⚙️ Setup Instructions
+
+Run BumpCare AI locally with these steps:
+
+```bash
 # Clone repo
 git clone https://github.com/unitedtechno/bumpcare-ai.git
 cd bumpcare-ai
@@ -168,65 +188,63 @@ pip install -r requirements.txt
 
 # Run backend
 python app.py
+```
 
-Access at: http://127.0.0.1:5000/chat
-Test with sample patient IDs from /sample_data/patients.json
+Access at: [http://127.0.0.1:5000/chat](http://127.0.0.1:5000/chat)  
+Test with sample patient IDs from `/sample_data/patients.json`  
 
-Future Roadmap
-Integration with multiple hospitals → Expand deployment to connect with a network of hospitals.
+---
 
+## 🛠️ Future Roadmap
 
-EHR/EMR Sync → Support bidirectional sync with hospital EHR/EMR systems so patient summaries, risks, and AI suggestions are automatically stored in official records.
+- **Integration with multiple hospitals** → Networked deployment.  
+- **EHR/EMR Sync** → Automatic bidirectional updates.  
+- **Interoperability Standards** → HL7 FHIR / SNOMED CT compliance.  
+- **Postpartum Care** → Extend care to postnatal mother and infant health.  
+- **Wearable Integration** → Real-time vitals from BP cuffs, glucose monitors, smartwatches.  
+- **Multilingual Support** → Local language support for rural regions.  
+- **Mobile Companion App** → Lightweight tool for nurses and field healthcare workers.  
 
+---
 
-Interoperability Standards → Adopt HL7 FHIR / SNOMED CT to ensure data portability across healthcare systems.
+## ⚠️ Known Limitations
 
+- **Doctor-in-the-loop required** → AI is decision-support only.  
+- **Research freshness** → Depends on update frequency of guidelines/papers.  
+- **Data dependency** → Accuracy relies on completeness of patient records.  
+- **EHR/EMR integration scope** → Hospital-specific for now.  
+- **Language limitations** → English only (multilingual planned).  
+- **Edge cases** → Rare complications may not be fully supported.  
 
-Postpartum Care → Extend BumpCare beyond pregnancy into postpartum mother and infant health.
+---
 
+## 🎥 Submission Video
 
-Wearable Integration → Ingest real-time vitals (BP cuffs, glucose monitors, smartwatches) for continuous risk monitoring.
+Demo video (≤ 3 minutes) showcasing:  
+- **Doctor login**  
+- **Patient ID entry**  
+- **AI-generated summary & risk detection**  
+- **Recommendations** (medications, food, exercise)  
+- **Research link outputs**  
 
+---
 
-Multilingual Support → Enable region-specific languages to support rural doctors and patients.
+## 👩‍💻 Team – United Techno (AI & Healthcare Innovation)
 
+- **Ramesh Hariharan**  
+- **Vigneshwaran Neelakandan**  
+- **Gayathri Gunasekar**  
 
-Mobile Companion App → Lightweight mobile tool for nurses and field healthcare workers.
-Known Limitations
-Doctor-in-the-loop required → BumpCare AI is a decision-support tool, not a replacement for clinical judgment. All outputs must be validated by a healthcare professional.
+🔗 [United Techno Website](https://www.unitedtechno.com/)  
 
+---
 
-Research freshness → Recommendations depend on how frequently medical guidelines and research papers are ingested into the vector store. Delays may reduce evidence currency.
+## ✨ Tagline
 
+**BumpCare AI = Faster Reviews. Smarter Care. Safer Pregnancy.**  
 
-Data dependency → The system’s accuracy relies on completeness and quality of patient records (labs, scans, vitals). Missing data may affect risk assessment.
+---
 
+## 📜 License
 
-EHR/EMR integration scope → Current implementation is hospital-specific. Cross-hospital interoperability (FHIR/HL7) is part of future roadmap, not fully implemented yet.
-
-
-Language limitations → Presently supports English only; multilingual expansion is planned.
-
-
-Edge cases in pregnancy → Rare complications (e.g., multiple gestation anomalies, rare genetic syndromes) may not be covered fully by the AI assistant.
-
-
-Submission Video
-Demo video (≤ 3 minutes) showing:
-Doctor login
-Patient ID entry
-AI summary & risks
-Recommendations (meds, food, exercise)
-Research link output
-
-
-
-Team
-United Techno – AI & Healthcare Innovation Team
-Ramesh Hariharan
-Vigneshwaran Neelakandan
-Gayathri Gunasekar
-Link: https://www.unitedtechno.com/
-
-
-BumpCare AI = Faster Reviews. Smarter Care. Safer Pregnancy.
+This project is licensed under the **MIT License**.  
