@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BumpCare AI - Chat Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            background: linear-gradient(to bottom, rgb(0 0 0 / 51%), rgb(0 0 0 / 51%)),
+            url('{{ url_for("static", filename="chat_background_img.png") }}') no-repeat center center/cover;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item button {
+            color: #3e3e3e !important;
+        }
+
+        .nav-item .active {
+            font-weight: 500;
+            color: white !important;
+            background-color: #e91e63 !important;
+            border: none;
+        }
+
+        .chat-container {
+            flex: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 6.3rem 1rem 1rem 3rem;
+        }
+
+        .chat-box {
+            width: 70%;
+        }
+
+        .bot-message,
+        .user-message {
+            border-radius: 1rem 0rem 1rem 1rem;
+            padding: 15px;
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: .8rem;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .bot-message {
+            font-size: .9rem;
+            max-width: 100%;
+            width: max-content;
+            background: #f9f9f9;
+            text-align: left;
+            border-radius: 0px 1rem 1rem 1rem;
+        }
+
+        .user-message {
+            max-width: 56%;
+            width: max-content;
+            background: #e91e63;
+            color: #fff;
+            margin-left: auto;
+            text-align: right;
+            position: relative;
+            right: 2.75rem;
+        }
+
+        .chat-input {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            position: sticky;
+            bottom: 1rem;
+            width: 100%;
+        }
+
+        .chat-input input {
+            border-radius: 3rem;
+            border: 1px solid #ccc;
+            padding: 1rem 20px;
+            flex: 1;
+            outline: none;
+        }
+
+        .ai_assitant {
+            color: white;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: .3rem;
+        }
+
+        .chat-input button {
+            position: relative;
+            right: 4rem;
+            border: none;
+            border-radius: 15%;
+            margin-left: 10px;
+            background: #e91e63;
+            color: #fff;
+            width: 2.2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .chat-box {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-white fixed-top px-3 position-sticky">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+            <img src="{{ url_for('static', filename='bumpcare.png') }}" alt="logo" width="150" class="me-2">
+        </a>
+        <div class="d-flex align-items-center">
+            <button class="me-2" style="padding: .3rem .5rem;border-radius: 6px;border: none;background:#E6F1FF;">
+                <img width="20" src="{{ url_for('static', filename='pajamas_duo.png') }}">
+            </button>
+            <button class="me-3"
+                style="border: 2.5px solid #D72828;padding: .2rem .8rem;border-radius: 5px;font-size: .9rem;background: none;">End
+                Chat</button>
+            <span class="me-2" style="font-size: 1rem;">Hello Doctor</span>
+            <img src="{{ url_for('static', filename='Vector.png') }}" width="30" alt="user">
+            <img src="{{ url_for('static', filename='arrow_drop_down-24px 5.png') }}" width="20" alt="user">
+        </div>
+    </nav>
+
+    <!-- Chat Section -->
+    <div class="chat-container">
+        <div class="chat-box">
+            <p class="ai_assitant">
+                <img src="{{ url_for('static', filename='aichaticon.png') }}" class="me-1" width="20" alt="user">AI
+                Assistant
+            </p>
+
+            <!-- Bot Intro -->
+            <div class="bot-message">
+                <p class="mt-2 mb-4">Hi, Welcome to the BumpCare. The AI Doctor's Assistant - Obstetrics & Childbirth
+                    support.</p>
+                <ul>
+                    <li>Pregnancy symptom & condition mapping</li>
+                    <li>Test result review & interpretation</li>
+                    <li>Evidence-based maternal care insights</li>
+                    <li>Quick retrieval of patient records</li>
+                </ul>
+            </div>
+
+            <!-- Bot Prompt -->
+            <div class="bot-message">
+                <p style="margin-bottom: 0;">To begin with, please enter the Patient ID you want to review</p>
+            </div>
+
+           
+
+            <!-- Chat Messages Container -->
+            <div id="chat-messages"></div>
+
+            <!-- Input Area -->
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Ask me anything">
+                <button id="send-btn"><i class="fa fa-paper-plane"></i></button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+
+            if (isUser) {
+                messageDiv.innerHTML = `
+                    <span class="user_assitant d-flex justify-content-end me-5">
+                        <p style="font-weight: 500;font-size:1rem;color:white;" class="me-2 mb-2 mt-1">You</p>
+                        <img src="{{ url_for('static', filename='user-doctor.png') }}" class="me-1" width="20" height="25" alt="user">
+                    </span>
+                    <div class="user-message">
+                        <span>${message}</span>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="bot-message">
+                        ${message}
+                    </div>
+                `;
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function scrolldown(){
+            
+ window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth" // remove if you want instant scroll
+    });
+        }
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            addMessage(message, true);
+            userInput.value = '';
+            addMessage('Processing your request...');
+
+            fetch('/process_patient', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ patient_input: message })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    chatMessages.removeChild(chatMessages.lastChild);
+
+                    if (data.error) {
+                        addMessage(`Error: ${data.error}`);
+                    } else {
+                        addMessage(data.summary);
+                    }
+                    scrolldown();
+                })
+                .catch(error => {
+                    chatMessages.removeChild(chatMessages.lastChild);
+                    addMessage('Sorry, there was an error processing your request.');
+                    console.error('Error:', error);
+                });
+        }
+
+sendBtn.addEventListener('click', function() {
+        sendMessage();
+      scrolldown();
+});
+        userInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                                sendMessage();
+                scrolldown();
+            }
+        });
+
+
+
+        // sendBtn.addEventListener('click', () => {
+        //     sendMessage();
+
+        //     // Scroll the entire body to bottom
+        //     window.scrollTo({
+        //         top: document.body.scrollHeight,
+        //         behavior: "smooth"   // remove "smooth" if you want instant jump
+        //     });
+        // });
+        
+       sendBtn.addEventListener('click', sendMessage, scrollPageToBottom);
+
+        function scrollPageToBottom() {
+
+            const scrollTarget = Math.max(
+                document.body.scrollHeight,
+                document.documentElement.scrollHeight
+            );
+
+
+            try {
+                window.scrollTo({
+                    top: scrollTarget,
+                    behavior: "smooth"
+                });
+            } catch (err) {
+                window.scrollTo(0, scrollTarget);
+            }
+        }
+
+        userInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+
+</html>

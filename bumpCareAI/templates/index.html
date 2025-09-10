@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BumpCare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background: url('{{ url_for("static", filename="loginbackgroundimg.png") }}') no-repeat center center fixed;
+            background-size: cover;
+            font-family: "Lato", sans-serif;
+
+        }
+
+        .login-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.2rem 1.8rem;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            width: 27rem;
+            position: fixed;
+            right: 8rem;
+            top: 5rem;
+        }
+
+        .login-box .logo {
+            text-align: center;
+            margin-bottom: 1.3rem;
+
+        }
+
+        .login-box h3 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .login-box p {
+            color: #999999;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+
+        .login-box .form-control {
+            height: 45px;
+            border-radius: 5px;
+        }
+
+        .login-box .btn-primary {
+            background: #D62B70;
+            border: none;
+            border-radius: 8px;
+            height: 45px;
+            font-weight: 600;
+        }
+
+        .login-box .btn-primary:hover {
+            background: #bb3a6e;
+        }
+
+        .login-box .form-check-label {
+            font-size: 14px;
+        }
+
+        .login-box .forgot-password {
+            float: right;
+            font-size: 14px;
+            text-decoration: none;
+            color: #0072BC;
+        }
+
+        .login-box .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .login-box .form-label {
+            font-weight: 600;
+            color: #4F606A;
+        }
+
+        .login-box .form-control::placeholder {
+            color: #D9D9D9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='bumpcare.png') }}" alt="Healix Logo" width="170">
+        </div>
+
+        <h3>Login</h3>
+        <p>Get started now by entering your details below</p>
+
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email id here" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password here" required>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                    <label class="form-check-label" for="remember">Remember me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Login & Continue</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
