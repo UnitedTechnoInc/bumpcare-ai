@@ -74,7 +74,7 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 - AI Assistant Chat
 
-![Login](images/Login.PNG)
+![Login](images/Chat.PNG)
 
 ---
 
