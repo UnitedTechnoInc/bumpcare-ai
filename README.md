@@ -85,20 +85,7 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 | AI Models   | gpt-oss-20b | Summaries, risk reasoning, safe recs, citations |
 | Patient DB  | SQL         | Stores patient visits, labs, history |
 | Vector Store| FAISS       | Research, ontology, similar cases |
-| Security    | DB-Based Auth | Role-based access |  
-
----
-
-## 🔄 Data Flow
-
-**Request → Response lifecycle:**  
-
-1. Doctor/Nurse logs in and enters Patient ID.  
-2. Backend authenticates, fetches records from SQL DB, and retrieves embeddings from FAISS.  
-3. AI model generates summaries, risks, and safe recs (with safety guards).  
-4. Backend consolidates and delivers structured summary to the portal.  
-
-📌 Flow: Portal → Backend → Database/Vector Store → AI → Backend → Portal  
+| Security    | DB-Based Auth | Role-based access | 
 
 ---
 
