@@ -52,13 +52,28 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 ## ✨ Key Aspects of the Solution
 
-- Automated patient summaries  
-- Risk detection & alerts  
-- AI-generated recommendations  
-- Case similarity analysis  
-- Evidence-based medicine  
-- Doctor workflow support  
-- Nutrition & exercise guidance  
+## ✨ Key Aspects of the Solution
+
+- **Automated Patient Summaries**  
+  Provides trimester status, vitals, lab test interpretations, and fetal growth details. Consolidates fragmented records into a single, structured view.  
+
+- **Risk Detection & Alerts**  
+  AI flags early signs of pre-eclampsia, gestational diabetes, fetal growth restriction, thyroid disorders, and anemia. Trend-based alerts highlight worsening conditions (e.g., rising BP, falling Hb).  
+
+- **AI-Generated Recommendations**  
+  Suggests generic medication classes (iron, folic acid, calcium, omega-3, levothyroxine). Provides food & nutrition guidance, safe trimester exercises, and lifestyle precautions. Outputs are textual, clear, and doctor-friendly.  
+
+- **Case Similarity Analysis**  
+  Compares current patients with past cases stored in the database. Offers insights on how similar cases were monitored and managed.  
+
+- **Evidence-Based Medicine**  
+  Retrieves and links to research papers and medical ontology. Ensures all AI suggestions are backed by trusted medical sources.  
+
+- **Doctor Workflow Support**  
+  Doctors save time by reviewing AI summaries instead of raw reports. Nurses receive guidance on nutrition, exercise, and lifestyle recommendations.  
+
+- **Nutrition & Exercise Guidance**  
+  Trimester-specific recommendations include iron-rich foods, calcium and folate support, and safe physical activities such as light yoga, walking, and stretching. Advice on hydration, sleep hygiene, and avoiding restricted foods/activities.  
 
 ---
 
