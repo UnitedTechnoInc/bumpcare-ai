@@ -13,7 +13,7 @@ Developed by **[United Techno](https://www.unitedtechno.com/)**.
 - [Problem Statement](#-problem-statement)
 - [Solution](#-solution--bumpcare-ai)
 - [Key Aspects of the Solution](#-key-aspects-of-the-solution)
-- [Mockup UI Screens](#-mockup-ui-screens)
+- [Application Screenshots](#-application-screenshots)
 - [System Architecture](#-system-architecture)
 - [Data Flow](#-data-flow)
 - [RAG & Model Details](#-rag--model-details)
