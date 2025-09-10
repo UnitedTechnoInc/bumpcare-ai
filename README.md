@@ -62,7 +62,7 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 ---
 
-## 🖥️ Mockup UI Screens
+## 🖥️ Application Screenshots
 
 - Login Page
 
