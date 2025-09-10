@@ -1,6 +1,6 @@
 # 🤰 BumpCare AI – Smart Care, Smart Pregnancy
 
-![Logo](Logo.png)
+![Logo](images/Logo.png)
 
 **BumpCare AI** is an **AI-powered pregnancy care assistant** built for **doctors and nurses**.  
 It provides instant trimester summaries, risk identification, medication class suggestions, and evidence-based recommendations by leveraging **gpt-oss-20b**.  
@@ -64,9 +64,17 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 ## 🖥️ Mockup UI Screens
 
-- Login Page  
-- Doctor Portal  
-- AI Assistant Chat  
+- Login Page
+
+![Login](images/Login.PNG)
+
+- Doctor Portal
+
+![Login](images/Landing.PNG)
+
+- AI Assistant Chat
+
+![Login](images/Login.PNG)
 
 ---
 
@@ -74,7 +82,7 @@ BumpCare AI is designed to bridge these gaps by acting as a **doctor’s daily A
 
 1. **High-Level Overview** 
 
-![Architecture](Architecture.png)
+![Architecture](images/Architecture.png)
 
 2. **Components**  
 
