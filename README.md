@@ -225,7 +225,7 @@ Demo video (≤ 3 minutes) showcasing:
 - **Recommendations** (medications, food, exercise)  
 - **Research link outputs**
    
-For a detailed walkthrough, check out our [demo video on YouTube](https://www.youtube.com/watch?v=e0Bsm3chnuQ).
+[![Watch the video](https://img.youtube.com/vi/your_video_id/0.jpg)](https://www.youtube.com/watch?v=e0Bsm3chnuQ)
 ---
 
 ## 👩‍💻 Team – United Techno (AI & Healthcare Innovation)
