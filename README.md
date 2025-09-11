@@ -223,8 +223,9 @@ Demo video (≤ 3 minutes) showcasing:
 - **Patient ID entry**  
 - **AI-generated summary & risk detection**  
 - **Recommendations** (medications, food, exercise)  
-- **Research link outputs**  
-
+- **Research link outputs**
+   
+For a detailed walkthrough, check out our [demo video on YouTube](https://www.youtube.com/watch?v=e0Bsm3chnuQ).
 ---
 
 ## 👩‍💻 Team – United Techno (AI & Healthcare Innovation)
